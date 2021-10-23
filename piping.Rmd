@@ -1,0 +1,43 @@
+---
+title: "Untitled"
+author: "Tao"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r , message=FALSE }
+#install.packages("tidyverse")
+library("tidyverse")
+```
+
+Pipes are a powerful tool for clearly expressing a sequence of multiple operations. 
+
+Stacking functions inside of each other can create code that is difficult to read. 
+
+```{r}
+#create a vector
+v1<-c(12.3,4.32)
+print(v1)
+```
+
+Method 1
+```{r}
+m1<-mean(v1)
+print(m1)
+
+r1<-round(m1)
+print(r1)
+```
+
+Method 2
+```{r}
+r1<-round(mean(v1))
+print(r1)
+```
+
+Method 3
+```{r}
+v1 %>% mean() %>% round()
+```
